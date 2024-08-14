@@ -1,8 +1,9 @@
-# flutter_advanced_course
+# flutter advanced course
 
 A new Flutter project.
 
 ## Getting Started
+## System Design
 
 This project is a starting point for a Flutter application.
 
