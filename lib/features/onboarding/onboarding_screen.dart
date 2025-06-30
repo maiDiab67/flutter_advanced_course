@@ -10,32 +10,33 @@ class OnBoardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(top: 30.h,
-            bottom: 30.h),
-            child:  Column(
+            //30.h makes screen responsive as in screenUtils package
+            padding: EdgeInsets.only(top: 30.h, bottom: 30.h),
+            child: Column(
               children: [
-              const  DocLogoAndName(),
-              SizedBox(height: 30.h),
-              const DoctorImageAndText(),
-              Padding(
-                padding:  EdgeInsets.symmetric
-                (horizontal: 30.w),
-                child: Column(
-                  children: [
-                    Text('Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.',
-                    style: TextStyles.font13GrayRegular,
-                    textAlign: TextAlign.center,)
-                  ],
+                const DocLogoAndName(),
+                SizedBox(height: 30.h),
+                const DoctorImageAndText(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30.w),
+                  child: Column(
+                    children: [
+                      Text(
+                        'Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.',
+                        style: TextStyles.font13GrayRegular,
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 30.h,),
-              const GetStartedButton()
-
-                
+                SizedBox(
+                  height: 30.h,
+                ),
+                const GetStartedButton()
               ],
             ),
           ),
