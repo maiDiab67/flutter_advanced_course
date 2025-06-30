@@ -15,7 +15,8 @@ class OnBoardingScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             //30.h makes screen responsive as in screenUtils package
-            padding: EdgeInsets.only(top: 30.h, bottom: 30.h),
+            padding: EdgeInsets.only(
+                top: 30.h, bottom: 30.h, left: 20.h, right: 20.h),
             child: Column(
               children: [
                 const DocLogoAndName(),
