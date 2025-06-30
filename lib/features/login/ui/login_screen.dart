@@ -5,6 +5,10 @@ import 'package:flutter_advanced_course/core/theming/styles.dart';
 import 'package:flutter_advanced_course/core/widgets/app_text_form_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../core/widgets/app_text_button.dart';
+import 'widgets/already_have_account_text.dart';
+import 'widgets/terms_and_conditions_text.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -53,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 });
                               },
                               child: Icon(
+                                color: ColorsManger.mainBlue,
                                 isObscureText
                                     ? Icons.visibility_off
                                     : Icons.visibility,
@@ -60,10 +65,23 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           verticalSpace(24),
-                          const Align(
-                            alignment: Alignment.center,
-                            child: Text('Forgot Password?'),
-                          )
+                          Align(
+                            alignment: AlignmentDirectional.centerEnd,
+                            child: Text(
+                              'Forgot Password?',
+                              style: TextStyles.font13BlueRegular,
+                            ),
+                          ),
+                          verticalSpace(40),
+                          AppTextButton(
+                            buttonText: 'Login',
+                            textStyle: TextStyles.font16WhiteSemiBold,
+                            onPressed: () {},
+                          ),
+                          verticalSpace(16),
+                          const TermsAndConditionsText(),
+                          verticalSpace(60),
+                          const AlreadyHaveAccountText(),
                         ],
                       ))
                 ],

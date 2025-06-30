@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DocApp extends StatelessWidget {
   final AppRouter appRouter;
-  const DocApp({super.key,required this.appRouter});
+  const DocApp({super.key, required this.appRouter});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,9 @@ class DocApp extends StatelessWidget {
         title: 'Doc App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          primaryColor: ColorsManger.mainBlue,
-          scaffoldBackgroundColor: Colors.white
-        ),
+            iconTheme: const IconThemeData(color: ColorsManger.mainBlue),
+            primaryColor: ColorsManger.mainBlue,
+            scaffoldBackgroundColor: Colors.white),
         initialRoute: Routes.onBoardingScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
