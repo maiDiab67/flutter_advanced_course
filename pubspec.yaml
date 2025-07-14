@@ -43,6 +43,7 @@ dependencies:
   json_annotation: ^4.9.0
   pretty_dio_logger: ^1.4.0
   retrofit: ^4.5.0
+  firebase_core: ^3.15.1
 
 dev_dependencies:
   flutter_test:
