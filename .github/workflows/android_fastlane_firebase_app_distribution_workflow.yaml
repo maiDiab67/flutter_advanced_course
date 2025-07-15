@@ -1,4 +1,4 @@
-name: Android Fastlane with GitHub Release Workflow
+name: Android Fastlane with Firebase App Distribution Workflow
 
 on:
   push:
@@ -6,19 +6,18 @@ on:
       - main
 
 jobs:
-  build_and_release:
+  distribute_to_firebase:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
+    - name: Checkout my repo code
       uses: actions/checkout@v2
-
+    
     - name: Set up JDK 17
       uses: actions/setup-java@v2
       with:
         java-version: '17'
         distribution: 'temurin'
-
+    
     - name: Install Flutter
       uses: subosito/flutter-action@v2
       with:
@@ -27,21 +26,14 @@ jobs:
     - name: Setup Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: "2.6.10"
+        ruby-version: "2.6.10p210"
         bundler-cache: true
         working-directory: android
-
-    - name: Build APK using Fastlane
-      run: |
-        bundle exec fastlane android build_release
-      working-directory: android
-
-    - name: Upload APK to GitHub Release
-      uses: softprops/action-gh-release@v2
-      with:
-        files: android/app/build/outputs/apk/release/app-release.apk
-        tag_name: release-${{ github.run_number }}
-        name: "App Release #${{ github.run_number }}"
-        body: "Automated release from main branch"
+        
+    - name: Build and Distribute App
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
+      run: |
+        bundle exec fastlane android firebase_distribution
+      working-directory: android
+      
