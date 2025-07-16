@@ -17,10 +17,11 @@ class DocApp extends StatelessWidget {
         title: 'Doc App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            iconTheme: const IconThemeData(color: ColorsManger.mainBlue),
-            primaryColor: ColorsManger.mainBlue,
-            scaffoldBackgroundColor: Colors.white),
-        initialRoute: Routes.onBoardingScreen,
+          iconTheme: const IconThemeData(color: ColorsManger.mainBlue),
+          primaryColor: ColorsManger.mainBlue,
+          scaffoldBackgroundColor: Colors.white,
+        ),
+        initialRoute: Routes.homeScreen,
         onGenerateRoute: appRouter.generateRoute,
       ),
     );
