@@ -1,0 +1,23 @@
+import 'package:flutter_advanced_course/core/networking/api_error_handler.dart';
+import 'package:flutter_advanced_course/core/networking/api_result.dart';
+import 'package:flutter_advanced_course/features/home/data/apis/home_api_service.dart';
+
+import '../../../../core/networking/api_constants.dart';
+import '../apis/home_api_constants.dart';
+import '../models/specializations_response_model.dart';
+
+class HomeRepo {
+  final HomeApiService _homeApiService;
+  HomeRepo(this._homeApiService);
+
+  Future<ApiResult<SpecializationsResponseModel>> getSpecialization() async {
+    try {
+      print('${ApiConstants.apiBaseUrl}${HomeApiConstants.specializationEP}');
+
+      final response = await _homeApiService.getSpecialization();
+      return ApiResult.success(response);
+    } catch (error) {
+      return ApiResult.failure(ErrorHandler.handle(error));
+    }
+  }
+}

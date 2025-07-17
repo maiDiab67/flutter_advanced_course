@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_course/core/helpers/spacing.dart';
 import 'package:flutter_advanced_course/core/theming/styles.dart';
-import 'package:flutter_advanced_course/features/login/data/models/login_request_body.dart';
 import 'package:flutter_advanced_course/features/login/logic/login/login_cubit.dart';
 import 'package:flutter_advanced_course/features/login/ui/widgets/email_and_password.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
