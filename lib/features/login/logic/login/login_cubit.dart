@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_course/core/helpers/shared_pref_helper.dart';
+import 'package:flutter_advanced_course/core/networking/dio_factory.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/helpers/constants.dart';
 import '../../data/models/login_request_body.dart';
 import '../../data/repos/login_repo.dart';
 import 'login_state.dart';
@@ -22,12 +25,19 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
     response.when(
-      success: (loginResponse) {
+      success: (loginResponse) async {
+        await saveUserToken(loginResponse.userData!.token ?? "");
+
         emit(LoginState.success(loginResponse));
       },
       failure: (error) {
         emit(LoginState.error(error: error.apiErrorModel.message ?? ''));
       },
     );
+  }
+
+  Future<void> saveUserToken(String token) async {
+    await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
+    DioFactory.setTokenIntoHeaderAfterLogin(token);
   }
 }
