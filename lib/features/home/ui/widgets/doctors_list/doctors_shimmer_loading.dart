@@ -23,6 +23,7 @@ class DoctorsShimmerLoading extends StatelessWidget {
                   highlightColor: Colors.white,
                   child: Container(
                     width: 110.w,
+
                     height: 120.h,
                     decoration: BoxDecoration(
                       shape: BoxShape.rectangle,
